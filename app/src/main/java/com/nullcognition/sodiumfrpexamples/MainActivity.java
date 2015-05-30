@@ -1,11 +1,14 @@
 package com.nullcognition.sodiumfrpexamples;
 
 import android.app.Activity;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import sodium.CellSink;
+import com.nullcognition.sodiumfrpexamples.databinding.ActivityMainBinding;
+import com.nullcognition.sodiumfrpexamples.model.User;
+//import com.nullcognition.sodiumfrpexamples.sodium.*;
 
 
 public class MainActivity extends Activity{
@@ -13,7 +16,14 @@ public class MainActivity extends Activity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+//		setContentView(R.layout.activity_main);
+		ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+		User user = new User("Test", "User");
+		binding.setUser(user);
+
+
+
+
 	}
 
 	@Override
